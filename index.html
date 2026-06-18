@@ -45,18 +45,16 @@
         .btn-submit { padding: 10px 25px; background: #ff416c; border: none; border-radius: 20px; color: white; cursor: pointer; font-weight: bold; }
         .error-msg { color: #ff4b2b; font-size: 0.9rem; margin-top: 10px; display: none; }
         
-        /* MÀN HÌNH CHỮ CHẠY TỰ ĐỘNG */
         #typing-screen { background: #000; padding: 20px; text-align: center; }
         .typing-box {
             max-width: 600px; font-size: 1.3rem; line-height: 2; color: #ffe4e1;
             font-family: 'Georgia', serif; font-style: italic; min-height: 150px;
         }
         
-        /* HIỆU ỨNG PHONG THƯ */
         .envelope-wrapper {
             margin-top: 30px; opacity: 0; transform: scale(0.8);
             transition: all 1s ease; cursor: pointer; display: none;
-            }
+        }
         .envelope-wrapper.show { opacity: 1; transform: scale(1); display: block; }
         .envelope {
             width: 150px; height: 100px; background: #ff758c; position: relative;
@@ -74,7 +72,6 @@
         }
         @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
-        /* MÀN HÌNH CHÍNH */
         #main-screen { background: black; }
         canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
         
@@ -97,9 +94,9 @@
 </head>
 <body>
 
-    <!-- NHẠC NỀN ẨN -->
+    <!-- NHẠC NỀN ẨN TUYỆT ĐỐI -->
     <audio id="bg-music" loop>
-        <source src="Bâng Khuâng.mp3" type="audio/mpeg">
+        <source src="https://duyhung2404.github.io/for-ha-phuong/Bâng Khuâng.mp3" type="audio/mpeg">
     </audio>
 
     <!-- MÀN HÌNH 1: SẢNH CHỜ -->
@@ -117,7 +114,7 @@
         </div>
     </div>
 
-    <!-- MÀN HÌNH ĐỆM: CHỮ CHẠY TỰ ĐỘNG + PHONG THƯ -->
+    <!-- MÀN HÌNH ĐỆM -->
     <div id="typing-screen" class="screen">
         <div id="text-target" class="typing-box"></div>
         <div id="envelope-btn" class="envelope-wrapper" onclick="openLetter()">
@@ -131,7 +128,6 @@
     <div id="main-screen" class="screen">
         <canvas id="heartCanvas"></canvas>
         <div id="main-letter" class="letter-container">
-            <!-- ẢNH HAI BÊN RÌA KHUNG THƯ (Tự động bung ra cùng thư) -->
             <img src="https://duyhung2404.github.io/for-ha-phuong/anh1.png" style="position: absolute; left: -140px; top: 10%; width: 110px; height: 110px; object-fit: cover; border-radius: 50%; border: 2px solid #ff69b4; box-shadow: 0 0 15px rgba(255,105,180,0.5); z-index: 3;">
             <img src="https://duyhung2404.github.io/for-ha-phuong/anh2.png" style="position: absolute; left: -160px; bottom: 15%; width: 120px; height: 150px; object-fit: cover; border-radius: 10px; transform: rotate(-10deg); border: 3px solid #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 3;">
             <img src="https://duyhung2404.github.io/for-ha-phuong/anh3.png" style="position: absolute; right: -140px; top: 25%; width: 110px; height: 110px; object-fit: cover; border-radius: 50%; border: 2px solid #ff69b4; box-shadow: 0 0 15px rgba(255,105,180,0.5); z-index: 3;">
@@ -143,7 +139,7 @@
 
                 Mình gặp trong môi trường đại học - một môi trường vừa lý tưởng để đủ trưởng thành về suy nghĩ và cũng là khoảng thời gian ta bắt đầu có những bước đi tự lập đầu tiên trong cuộc đời.
                 Thực sự trước đó H không hề biết đến Phương nhưng sau kì quân sự đã cho tôi connect với nhiều thành viên trong lớp hơn trong đó có Phương.
-                Thực ra thì H cũng chỉ mang tương tư gần đây thôi nhưng thực sự thì Phương đã gây cho H ấn tượng rất mạnh về hình ảnh một cô gái mạnh mẽ, chăm chỉ trên bất kì phương diện nào.
+                Thực ra thì H cũng chỉ mang tương tư gần đây thôi nhưng thực sự thì Phương đã gây cho H ấn tượng rất mạnh về hình ảnh một cô gái mạnh mẽ, tự lập, chăm chỉ trên bất kì phương diện nào.
                 Mặc dù được mấy đứa động viên rằng thích Phương thì nói đi không là mất đấy nhưng H không vẫn không dám vì:
                 Thứ nhất, bản thân tôi biết H còn nhiều thứ thực sự chưa ổn định và nếu nói ra đôi khi H sợ mất đi cả tình bạn vừa mới được hình thành không lâu.
                 Thứ hai, H rất nhút nhát có thể trên lớp Phương thấy tôi là người nói cực kì nhiều thậm chí rất vô tư nhưng bản chất khi tôi bị 1 vấn đề gì đó H lại rất nhút nhát để có thể đối mặt.
@@ -160,31 +156,26 @@
 
     <script>
         const CORRECT_PASSWORD = "1810"; 
-        // NỘI DUNG VÀI DÒNG MỞ ĐẦU CHẠY TỰ ĐỘNG (Bạn có thể sửa chữ ở đây tùy ý)
+        
         const introLines = [
             "Phương à...",
             "Tôi biết được khi ấn vào đây P cũng đã đoán được rằng tôi định nói gì với P?",
             "Có những lời nói nếu nói ra thành tiếng thì thật khó khăn...",
             "Nên tôi đã gửi gắm tất cả vào chiếc phong thư nhỏ này.",
-            "Mong rằng dù có được hay là không P hãy cố gắng đọc hết nhé vì nó nó thay tiếng lòng của tôi bấy lâu nay"
+            "Mong rằng dù có được hay là không P hãy cố gắng đọc hết nhé vì nó nó thay tiếng lòng",
             "Hãy chạm vào trái tim để mở nó nhé... ❤️"
         ];
 
-       function goToPassword() {
-            // Chuyển màn hình trước để không bao giờ bị kẹt nút
+        function goToPassword() {
             document.getElementById('lobby-screen').classList.remove('active');
             document.getElementById('password-screen').classList.add('active');
-            
-            // Thử bật nhạc sau, lỗi hay không cũng không ảnh hưởng đến giao diện
             try {
                 const music = document.getElementById('bg-music');
                 if (music) {
-                    music.play().catch(function(e) {
-                        console.log("Trình duyệt chặn phát nhạc tự động: ", e);
-                    });
+                    music.play().catch(e => console.log("Chặn phát nhạc: ", e));
                 }
             } catch(err) {
-                console.log("Lỗi file nhạc: ", err);
+                console.log("Lỗi nhạc: ", err);
             }
         }
 
@@ -195,15 +186,13 @@
             if(input === CORRECT_PASSWORD) {
                 document.getElementById('password-screen').classList.remove('active');
                 document.getElementById('typing-screen').classList.add('active');
-                startTypingEffect(); // Bắt đầu chạy chữ mở đầu
+                startTypingEffect();
             } else {
                 document.getElementById('error-message').style.display = 'block';
             }
         }
 
-        // Xử lý hiệu ứng chữ gõ tự động
-        let lineIndex = 0;
-        let charIndex = 0;
+        let lineIndex = 0; let charIndex = 0;
         const targetEl = document.getElementById("text-target");
 
         function startTypingEffect() {
@@ -211,15 +200,13 @@
                 if (charIndex < introLines[lineIndex].length) {
                     targetEl.innerHTML += introLines[lineIndex].charAt(charIndex);
                     charIndex++;
-                    setTimeout(startTypingEffect, 60); // Tốc độ gõ từng chữ (60ms)
+                    setTimeout(startTypingEffect, 60);
                 } else {
-                    targetEl.innerHTML += "<br><br>"; // Xuống dòng khi hết 1 câu
-                    lineIndex++;
-                    charIndex = 0;
-                    setTimeout(startTypingEffect, 1000); // Chờ 1 giây trước khi gõ câu tiếp theo
+                    targetEl.innerHTML += "<br><br>";
+                    lineIndex++; charIndex = 0;
+                    setTimeout(startTypingEffect, 1000);
                 }
             } else {
-                // Sau khi gõ hết chữ, hiện phong thư lên mượt mà
                 const envelope = document.getElementById("envelope-btn");
                 envelope.style.display = "block";
                 setTimeout(() => envelope.classList.add("show"), 50);
@@ -229,44 +216,24 @@
         function openLetter() {
             document.getElementById('typing-screen').classList.remove('active');
             document.getElementById('main-screen').classList.add('active');
-            initEffects(); // Bật triệu trái tim bay ở nền
-            
-            // Tạo hiệu ứng bức thư và ảnh trào ra (Pop-up) sau 200ms
-            setTimeout(() => {
-                document.getElementById('main-letter').classList.add('pop-up');
-            }, 200);
+            initEffects();
+            setTimeout(() => { document.getElementById('main-letter').classList.add('pop-up'); }, 200);
         }
 
-        // HỆ THỐNG TRIỆU TRÁI TIM & VÌ SAO
         function initEffects() {
-            const canvas = document.getElementById('heartCanvas');
-            const ctx = canvas.getContext('2d');
+            const canvas = document.getElementById('heartCanvas'); const ctx = canvas.getContext('2d');
             function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
             window.addEventListener('resize', resize); resize();
-
             const hearts = []; const stars = [];
-            for(let i = 0; i < 120; i++) {
-                stars.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, size: Math.random() * 1.5 + 0.5, alpha: Math.random(), speed: Math.random() * 0.02 + 0.01 });
-            }
-            function createHeart() {
-                return { x: Math.random() * canvas.width, y: canvas.height + Math.random() * 100, size: Math.random() * 8 + 5, speedY: Math.random() * 1.5 + 0.8, speedX: Math.sin(Math.random() * Math.PI) * 0.5, alpha: Math.random() * 0.5 + 0.5, hue: Math.random() * 30 + 340 };
-            }
+            for(let i = 0; i < 120; i++) { stars.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, size: Math.random() * 1.5 + 0.5, alpha: Math.random(), speed: Math.random() * 0.02 + 0.01 }); }
+            function createHeart() { return { x: Math.random() * canvas.width, y: canvas.height + Math.random() * 100, size: Math.random() * 8 + 5, speedY: Math.random() * 1.5 + 0.8, speedX: Math.sin(Math.random() * Math.PI) * 0.5, alpha: Math.random() * 0.5 + 0.5, hue: Math.random() * 30 + 340 }; }
             for(let i = 0; i < 80; i++) { let h = createHeart(); h.y = Math.random() * canvas.height; hearts.push(h); }
-            function drawHeart(x, y, size, color) {
-                ctx.save(); ctx.beginPath(); ctx.translate(x, y); ctx.moveTo(0, 0);
-                ctx.bezierCurveTo(-size / 2, -size / 2, -size, size / 3, 0, size);
-                ctx.bezierCurveTo(size, size / 3, size / 2, -size / 2, 0, 0);
-                ctx.closePath(); ctx.fillStyle = color; ctx.fill(); ctx.restore();
-            }
+            function drawHeart(x, y, size, color) { ctx.save(); ctx.beginPath(); ctx.translate(x, y); ctx.moveTo(0, 0); ctx.bezierCurveTo(-size / 2, -size / 2, -size, size / 3, 0, size); ctx.bezierCurveTo(size, size / 3, size / 2, -size / 2, 0, 0); ctx.closePath(); ctx.fillStyle = color; ctx.fill(); ctx.restore(); }
             function animate() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 stars.forEach(s => { s.alpha += s.speed; if(s.alpha > 1 || s.alpha < 0) s.speed = -s.speed; ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(s.alpha)})`; ctx.beginPath(); ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2); ctx.fill(); });
                 if (hearts.length < 250) { hearts.push(createHeart()); }
-                for(let i = hearts.length - 1; i >= 0; i--) {
-                    let h = hearts[i]; h.y -= h.speedY; h.x += h.speedX;
-                    drawHeart(h.x, h.y, h.size, `hsla(${h.hue}, 100%, 65%, ${h.alpha})`);
-                    if(h.y < -20) { hearts[i] = createHeart(); }
-                }
+                for(let i = hearts.length - 1; i >= 0; i--) { let h = hearts[i]; h.y -= h.speedY; h.x += h.speedX; drawHeart(h.x, h.y, h.size, `hsla(${h.hue}, 100%, 65%, ${h.alpha})`); if(h.y < -20) { hearts[i] = createHeart(); } }
                 requestAnimationFrame(animate);
             }
             animate();
